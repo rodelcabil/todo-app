@@ -1,0 +1,46 @@
+.todo-item {
+    width: 100%;
+    background: var(--bg-2);
+    display: flex;
+    padding: 15px;
+    border-radius: 5px;
+    max-height: 100px;
+    justify-content: space-between;
+
+    .left,
+    .right {
+        display: flex;
+        align-items: center;
+    }
+
+    .right {
+        width: 100px;
+        justify-content: space-evenly;
+    }
+}
+
+
+input[type="checkbox"] {
+    height: 22px;
+    width: 22px;
+    border-radius: 5px;
+
+   
+}
+
+.todo-details-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    max-width: 400px;
+
+    h3 {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 2px;
+    }
+    p {
+        font-size: 14px;
+        width: 100%;
+    }
+}
