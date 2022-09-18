@@ -1,4 +1,4 @@
-.addButton{
+.addButton {
     background-color: var(--primaryBlue);
     border: none;
     padding: 10px 20px;
@@ -9,4 +9,20 @@
     color: #fff;
     cursor: pointer;
     font-size: 15px;
+
+    span{
+        margin-left: 10px;
+    }
+
+    // @media (min-width: 0px) and (max-width: 555px) {
+    //     padding: 10px;
+    //     border-radius: 100%;
+    //     align-items: center;
+        
+       
+
+       
+    // }
 }
+
+

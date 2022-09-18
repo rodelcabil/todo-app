@@ -16,6 +16,12 @@
 	--gray-2: #dedfe1;
 	--black: black;
 	--white: white;
+
+	/* dark theme */
+	--darkThemeBg-1: #242424;
+	--darkThemeBg-2: #1E1E1E;
+	--darkThemeBg-3: #3B3B3B;
+
 }
 html {
 	font-size: 10px;
@@ -38,6 +44,7 @@ body {
     justify-content: center;
     justify-items: center;
     height: 100vh;
+	transition: all 0.5s ease;
 }
 
 .todo-wrapper{
@@ -49,11 +56,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     padding: 30px;
+	transition: all 0.5s ease;
 }
 
 .todo-item-container{
     margin-top: 20px;
-    max-height: 90%;
+    max-height: 85%;
+	overflow: auto;
+
 }
 
  .empty-list-container{
@@ -71,8 +81,95 @@ body {
 	margin-bottom: 20px;
 }
 
-h1{
+.empty-text{
+	transition: all 0.5s ease;
 	color: var(--black-1);
 	font-size: 30px;
 	
+}
+
+
+/* DARK THEME */
+
+.main-dark-container {
+	width: 100vw;
+	margin: 0 auto;
+    background: var(--darkThemeBg-2);
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    height: 100vh;
+	transition: all 0.5s ease;
+}
+
+.todo-wrapper-dark{
+    
+    height: 700px;
+    width: 700px;
+    margin: auto;
+    background: var(--darkThemeBg-1);
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 30px;
+	transition: all 0.5s ease;
+}
+.empty-text-dark{
+	font-size: 30px;
+	color: white;
+	transition: all 0.5s ease;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+	.main-dark-container {
+		width: 100%;
+		margin: 0 auto;
+		background: var(--darkThemeBg-1);
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+		height: 100vh;
+		transition: all 0.5s ease;
+		padding: 20px;
+	}
+
+	.main-container {
+		width: 100%;
+		margin: 0 auto;
+		background: #E1EBEF;
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+		height: 100vh;
+		transition: all 0.5s ease;
+		padding: 20px;
+	}
+
+
+	
+
+	.todo-wrapper-dark{
+		height: 700px;
+		width: 100%;
+		margin: auto;
+		background: var(--darkThemeBg-2);
+		border-radius: 10px;
+		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+		padding: 30px;
+		transition: all 0.5s ease;
+	}
+
+	.todo-wrapper{
+		height: 700px;
+		width: 100%;
+		margin: auto;
+		background: white;
+		border-radius: 10px;
+		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+		padding: 30px;
+		transition: all 0.5s ease;
+	}
+
 }

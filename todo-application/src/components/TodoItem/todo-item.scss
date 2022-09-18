@@ -6,7 +6,9 @@
     border-radius: 5px;
     max-height: 100px;
     justify-content: space-between;
-
+    transition: all 0.5s ease;
+    margin-bottom: 10px;
+    
     .left,
     .right {
         display: flex;
@@ -19,13 +21,10 @@
     }
 }
 
-
 input[type="checkbox"] {
     height: 22px;
     width: 22px;
     border-radius: 5px;
-
-   
 }
 
 .todo-details-container {
@@ -42,5 +41,29 @@ input[type="checkbox"] {
     p {
         font-size: 14px;
         width: 100%;
+    }
+}
+
+.todo-item-dark {
+    width: 100%;
+    background: var(--darkThemeBg-3);
+    display: flex;
+    padding: 15px;
+    border-radius: 5px;
+    max-height: 100px;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+
+    .left,
+    .right {
+        display: flex;
+        align-items: center;
+    }
+
+    .right {
+        width: 100px;
+        justify-content: space-evenly;
     }
 }
