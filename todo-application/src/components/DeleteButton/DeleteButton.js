@@ -5,13 +5,14 @@ import { Modal, notification } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from '../store/taskSlice';
-const DeleteButton = ({ task }) => {
+const DeleteButton = ({ task, setSearchTask }) => {
 
   const dispatch = useDispatch();
 
   const deleteTaskFunction = () => {
     dispatch(deleteTask(task?.id));
     openNotification();
+    setSearchTask('')
   }
 
   const confirmDelete = () => {

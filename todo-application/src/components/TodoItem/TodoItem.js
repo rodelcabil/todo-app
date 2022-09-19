@@ -4,7 +4,7 @@ import DeleteButton from '../DeleteButton/DeleteButton'
 import EditButton from '../EditButton/EditButton'
 import '../TodoItem/todo-item.scss'
 import moment from 'moment'
-const TodoItem = ({ title, time, task }) => {
+const TodoItem = ({ title, time, task, setSearchTask }) => {
 
   const theme = useSelector((state) => state.theme.theme);
   const Capitalize = (str) => {
@@ -21,8 +21,8 @@ const TodoItem = ({ title, time, task }) => {
           </div>
         </div>
         <div className="right">
-          <DeleteButton task={task}/>
-          <EditButton task={task} />
+          <DeleteButton task={task} setSearchTask={setSearchTask}/>
+          <EditButton task={task} setSearchTask={setSearchTask} />
         </div>
       </div>
      

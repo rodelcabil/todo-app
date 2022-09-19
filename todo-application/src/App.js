@@ -12,7 +12,7 @@ const App = () => {
   const theme = useSelector((state) => state.theme.theme);
   const task = useSelector((state) => state.task.task);
   const [searchTask, setSearchTask] = useState('');
-  const [filteredResults, setFilteredResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([...task]);
   const taskList = [...task];
   const myTheme = theme === 'light' || theme === null;
 
@@ -28,23 +28,25 @@ const App = () => {
         {
           
           //CHECK IF SEARCH INPUT HAS VALUE MORE THAN 1
-          searchTask.length > 1 ? (
-            
+          searchTask.length > 0 ? (
+
           // IF THE USER IS SEARCHING THIS WILL BE THE OUTPUT
           //CHECK IF FILTERED RESULT HAS VALUE
-          filteredResults.length !== 0 ?
-            <div className="todo-item-container">
-              {
-                filteredResults?.reverse().map((tasks, key) => {
-                  return <TodoItem key={key} title={tasks.task} time={tasks.time} task={tasks} />
-                })
-              }
-            </div>
-            :
+          filteredResults.length === 0 ?
+           
             <div className="empty-list-container">
               <img src={Empty} className="empty-img" alt="Empty List" />
               <h1 className={myTheme ? "empty-text" : "empty-text-dark"}>No task available</h1>
             </div>
+              :
+             <div className="todo-item-container">
+              {
+                filteredResults?.reverse().map((tasks, key) => {
+                  return <TodoItem key={key} title={tasks.task} time={tasks.time} task={tasks} setSearchTask={setSearchTask} />
+                })
+              }
+            </div>
+              
         )
           : 
 

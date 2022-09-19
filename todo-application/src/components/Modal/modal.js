@@ -9,7 +9,7 @@ import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 
-const TaskModal = ({ type, isOpen, onCancel, task }) => {
+const TaskModal = ({ type, isOpen, onCancel, task, setSearchTask }) => {
 
   const [taskInput, setTask] = useState('');
   const [status, setStatus] = useState('Incomplete');
@@ -26,7 +26,7 @@ const TaskModal = ({ type, isOpen, onCancel, task }) => {
       okText: type === 'add' ? 'Add' : 'Update',
       cancelText: 'Cancel',
       centered: true,
-      onOk: ()=> onSubmit(e)
+      onOk: ()=> {onSubmit(e)}
 
     });
   };
@@ -51,8 +51,11 @@ const TaskModal = ({ type, isOpen, onCancel, task }) => {
         task: taskInput,
         status: status,
       }));
+     
       onCancel();
+      setSearchTask('');
       openNotification();
+    
     }
   }
 
