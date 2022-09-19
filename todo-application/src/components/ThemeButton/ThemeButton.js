@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './theme-button.scss'
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 import { useDispatch, useSelector } from "react-redux";
@@ -10,8 +10,7 @@ const ThemeButton = () => {
     const theme = useSelector((state) => state.theme.theme);
     const myThemeTernary = theme === 'light' || theme === null;
 
-    console.log("redux theme", theme)
-    
+   
 
     // const [myTheme, setTheme] = useState(theme);
 

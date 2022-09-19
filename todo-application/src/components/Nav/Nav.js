@@ -5,7 +5,7 @@ import '../Nav/nav.scss'
 import SearchBar from '../SearchBar/SearchBar'
 import ThemeButton from '../ThemeButton/ThemeButton'
 
-const Navbar = () => {
+const Navbar = ({ task, setSearchTask, searchTask, setFilteredResults }) => {
 
   
     
@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className="nav">
             <AddButton />
             <div className='nav-row'>
-                <SearchBar/>
+                <SearchBar task={task} setFilteredResults={setFilteredResults} searchTask={searchTask} setSearchTask={setSearchTask}/>
                 <FilterButton />
                 <ThemeButton />
             </div>

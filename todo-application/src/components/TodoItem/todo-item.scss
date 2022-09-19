@@ -38,9 +38,27 @@ input[type="checkbox"] {
         width: 100%;
         margin-bottom: 2px;
     }
-    p {
+    span {
         font-size: 14px;
         width: 100%;
+    }
+}
+
+.todo-details-container-dark {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    max-width: 400px;
+
+    h3 {
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 2px;
+        color: white;
+    }
+    span {
+        font-size: 14px;
+        color: white;
     }
 }
 

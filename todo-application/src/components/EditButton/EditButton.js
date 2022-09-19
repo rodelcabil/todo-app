@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './edit-button.scss';
 import { MdModeEdit } from 'react-icons/md'
-const EditButton = () => {
+import TaskModal from '../Modal/modal';
+
+const EditButton = ({ task }) => {
+
+    const [openModal, setOpenModal] = useState(false);
+
+    const openModalFunction = () => {
+        setOpenModal(!openModal);
+    }
+
+
+
     return (
-        <div className="edit-button"><MdModeEdit size="22" /></div>
+        <>
+            <div className="edit-button" onClick={openModalFunction}><MdModeEdit size="22" /></div>
+            <TaskModal type="update" isOpen={openModal} onCancel={openModalFunction} task={task} />
+        </>
+
     )
 }
 

@@ -13,15 +13,15 @@ const initialState = {
     task: taskList(),
 };
 
-const themeSlice2 = createSlice({
+const taskSlice = createSlice({
     name: "task",
     initialState,
     reducers: {
-        addTask: (state, action) => {   
+        addTask: (state, action) => {
             state.task.push(action.payload);
-           
+
             const taskList = window.localStorage.getItem('taskList');
-           
+
             if (taskList) {
                 const taskListArr = JSON.parse(taskList);
                 taskListArr.push({ ...action.payload });
@@ -31,29 +31,69 @@ const themeSlice2 = createSlice({
             else {
                 window.localStorage.setItem(
                     'taskList',
-                    JSON.stringify([ 
-                       
+                    JSON.stringify([
+
                         {
                             ...action.payload,
                         },
                     ])
                 );
             }
-            
-        },
-        // updateTsk(state) {
-        //     state.theme = "light";
-        //     localStorage.setItem('theme', "light");
-           
-        // },
-        // deleteTask(state) {
-        //     state.theme = "light";
-        //     localStorage.setItem('theme', "light");
 
-        // },
+        },
+        updateTask(state, action) {
+            const taskList = window.localStorage.getItem('taskList');
+            if (taskList) {
+                const taskListArr = JSON.parse(taskList);
+
+                // for (var task in taskListArr) {
+                //     if (taskListArr[task].id == action.payload.id) {
+                //         taskListArr[task].task = action.payload.task;
+                //         taskListArr[task].status = action.payload.status;
+                //         break;
+                //     }
+                // }
+
+                // taskListArr.forEach((task) => {
+                //     if (task.id === action.payload.id) {
+                //         task.status = action.payload.status;
+                //         task.task = action.payload.task;
+                //     }
+                // });
+
+                // const newList = [...taskListArr];
+                // const objIndex = taskListArr.findIndex((obj => obj.id === action.payload.id));
+                // const newItem = newList[objIndex];
+                // newItem.id = action.payload.id;
+                // newItem.task = action.payload.task;
+                // newItem.status = action.payload.status;
+                // newList[objIndex] = newItem;
+
+                const objIndex = taskListArr.findIndex((obj => obj.id === action.payload.id));
+                taskListArr[objIndex].task = action.payload.task;
+                taskListArr[objIndex].status = action.payload.status;
+
+
+                window.localStorage.setItem('taskList', JSON.stringify(taskListArr));
+                state.task = [...taskListArr];
+            }
+
+        },
+        deleteTask(state, action) {
+            const taskList = window.localStorage.getItem('taskList');
+            if (taskList) {
+                const taskListArr = JSON.parse(taskList);
+                console.log("before delete: ",taskListArr)
+                const removeTask = taskListArr.filter(task => task.id !== action.payload);
+                window.localStorage.setItem('taskList', JSON.stringify(removeTask));
+                console.log("after delete: ", removeTask)
+                state.task = [...removeTask];
+            }
+
+        },
     },
 });
 
-export const { addTask } = themeSlice2.actions;
+export const { addTask, updateTask, deleteTask } = taskSlice.actions;
 
-export default themeSlice2.reducer;
+export default taskSlice.reducer;

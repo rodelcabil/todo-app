@@ -6,13 +6,13 @@ const AddButton = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const openModalFunction = () =>{
-    setOpenModal(true);
+    setOpenModal(!openModal);
   }
   
   return (
     <>
       <button className="addButton" onClick={openModalFunction}><MdOutlineAdd size={20} color="#fff" /><span>New Task</span></button>
-      <TaskModal type="add" isOpen={openModal} setOpenModal={setOpenModal} />
+      <TaskModal type="add" isOpen={openModal} onCancel={openModalFunction} />
     </>
   )
 }
