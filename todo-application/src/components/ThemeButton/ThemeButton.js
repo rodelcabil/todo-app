@@ -38,8 +38,8 @@ const ThemeButton = () => {
     return (
         <div className={myThemeTernary ? "themeButton" : "themeButtonDark" }>
             {
-                myThemeTernary ? <BsFillSunFill size="22" onClick={enableDarkMode} /> 
-                : <BsFillMoonFill size="22" onClick={disableDarkMode} />
+                myThemeTernary ? <BsFillMoonFill size="22" onClick={enableDarkMode} /> 
+                    : <BsFillSunFill size="22" onClick={disableDarkMode} />
             }
         </div>
     )
