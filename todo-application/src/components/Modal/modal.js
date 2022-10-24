@@ -16,6 +16,7 @@ const TaskModal = ({ type, isOpen, onCancel, task, setSearchTask }) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
+  console.log("The task",task)
 
 
   const confirmModal = (e) => {
@@ -53,7 +54,8 @@ const TaskModal = ({ type, isOpen, onCancel, task, setSearchTask }) => {
       }));
      
       onCancel();
-      setSearchTask('');
+      // setSearchTask('');
+      task = null;
       openNotification();
     
     }

@@ -56,7 +56,7 @@ const App = () => {
               <div className="todo-item-container">
                 {
                   taskList?.reverse().map((tasks, key) => {
-                    return <TodoItem key={key} title={tasks.task} time={tasks.time} task={tasks} />
+                    return <TodoItem key={key} title={tasks.task} time={tasks.time} task={tasks} setSearchTask={setSearchTask} />
                   })
                 }
               </div>

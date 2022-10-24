@@ -9,7 +9,7 @@ const SearchBar = ({ task, setFilteredResults, searchTask, setSearchTask }) => {
     // const [searchInput, setSearchInput] = useState('');
     
 
-    const searchItems = (searchValue) => {
+     const searchItems = (searchValue) => {
         setSearchTask(searchValue)
         if (searchTask.length !== '') {
             const filteredData = task.filter((item) => {
